@@ -26,7 +26,7 @@
             android:layout_gravity="bottom"
             android:background="@color/backgroundtext_card"
             android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+            android:paddingBottom="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -34,14 +34,14 @@
                 android:id="@+id/tituloTalleresCard"
                 android:text="@string/username_card"
                 android:textColor="@color/edittextColorWhite"
-                android:textSize="@dimen/textsize_username_card"/>
+                android:textSize="18sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/ponenteTallerCard"
                 android:text="@string/ponente_card"
                 android:textColor="@color/edittextColorWhite"
-                android:textSize="@dimen/textsize_username_card"/>
+                android:textSize="15sp"/>
 
 
                 <TextView
@@ -50,14 +50,14 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/edittextColorWhite"
                     android:text="@string/duracion_talleres"
-                    android:textSize="@dimen/disponibilidad_textsize"/>
+                    android:textSize="12sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/precioTallerCard"
                     android:textColor="@color/edittextColorWhite"
                     android:text="@string/precio_taller"
-                    android:textSize="@dimen/disponibilidad_textsize"/>
+                    android:textSize="12sp"/>
 
 
 
