@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_cardview"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contenidoconfeCard"
+    cardview:cardCornerRadius="@dimen/cornersradius_cardview"
+    android:layout_marginBottom="@dimen/activity_vertical_margin">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imageconfeCard"
+            android:layout_height="@dimen/height_cardview"
+            android:background="@drawable/image"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transition_imagentalleres"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:background="@color/backgroundtext_card"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloconfeCard"
+                android:text="@string/username_card"
+                android:textColor="@color/edittextColorWhite"
+                android:textSize="@dimen/textsize_username_card"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ponenteconfeCard"
+                android:text="@string/ponente_card"
+                android:textColor="@color/edittextColorWhite"
+                android:textSize="@dimen/textsize_username_card"/>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

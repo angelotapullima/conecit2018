@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Conecit</string>
+    <string name="hint_username">Nombre de usuario</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="text_button_login">login</string>
+    <string name="dont_have_account">¿No tienes cuenta?, </string>
+    <string name="create_here">crea una aquí</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_name">Nombre</string>
+    <string name="hint_password_confirm">Confirmar Contraseña</string>
+    <string name="text_button_crearaccount">Unete</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="toolbar_tittle_createaccount">Crear Cuenta</string>
+    <string name="username_card">Titulo</string>
+    <string name="firstword_card">Disponibles</string>
+    <string name="disponibilidad_card">30 cupos</string>
+    <string name="tab_talleres">Talleres</string>
+    <string name="tab_cronograma">Cronograma</string>
+    <string name="tab_conferencias">Conferencias</string>
+    <string name="tab_concursos">Concursos</string>
+    <string name="tab_informacion">Información</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ponente_card">Ponente</string>
+    <string name="usernameDetails">Titulo de Taller</string>
+    <string name="disponiblesDetails">Cupos Disponibles</string>
+    <string name="lorep_ipsun">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="title_activity_refrencia">refrencia</string>
+    <string name="transition_imagentalleres">transitionnameimagentalleres</string>
+    <string name="precio_taller">precio</string>
+    <string name="duracion_talleres">duracion</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="conecit">Conecit 2018</string>
+
+</resources>

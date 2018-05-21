@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_cardview"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contenidoCard"
+    cardview:cardCornerRadius="@dimen/cornersradius_cardview">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/imagentalleresCard"
+            android:layout_height="@dimen/height_cardview"
+            android:background="@drawable/image"
+            android:scaleType="centerCrop"
+            android:transitionName="@string/transition_imagentalleres"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:background="@color/backgroundtext_card"
+            android:paddingLeft="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloTalleresCard"
+                android:text="@string/username_card"
+                android:textColor="@color/edittextColorWhite"
+                android:textSize="@dimen/textsize_username_card"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ponenteTallerCard"
+                android:text="@string/ponente_card"
+                android:textColor="@color/edittextColorWhite"
+                android:textSize="@dimen/textsize_username_card"/>
+
+
+                <TextView
+                    android:id="@+id/duracionTalleresCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/edittextColorWhite"
+                    android:text="@string/duracion_talleres"
+                    android:textSize="@dimen/disponibilidad_textsize"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/precioTallerCard"
+                    android:textColor="@color/edittextColorWhite"
+                    android:text="@string/precio_taller"
+                    android:textSize="@dimen/disponibilidad_textsize"/>
+
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

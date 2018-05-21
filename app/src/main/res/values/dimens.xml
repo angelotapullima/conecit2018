@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_horizontal_login">32dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="edittext_textsize">32dp</dimen>
+    <dimen name="textsize_donthaveaccount">16sp</dimen>
+    <dimen name="edittext_textsize_login">22sp</dimen>
+    <dimen name="edittext_margin_creteaccount">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_cardview">200dp</dimen>
+    <dimen name="cornersradius_cardview">4dp</dimen>
+    <dimen name="textsize_username_card">25sp</dimen>
+    <dimen name="disponibilidad_textsize">15sp</dimen>
+    <dimen name="firstword_marginleft_card">5dp</dimen>
+    <dimen name="bottombar_height">70dp</dimen>
+    <dimen name="appbarlayout_height">256dp</dimen>
+    <dimen name="textsize_usernameDetails">25sp</dimen>
+    <dimen name="height_divider">1dp</dimen>
+    <dimen name="paddingtop_titleimageDetails">20dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+</resources>
