@@ -7,7 +7,8 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contenidoconfeCard"
     cardview:cardCornerRadius="@dimen/cornersradius_cardview"
-    android:layout_marginBottom="@dimen/activity_vertical_margin">
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

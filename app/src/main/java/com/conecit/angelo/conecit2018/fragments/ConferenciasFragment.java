@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class ConferenciasFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
     RecyclerView recyclerConferencias;
     ArrayList<DatosConferencias> listaConferencias;
-    ProgressDialog progres;
+    //ProgressDialog progres;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -63,9 +63,9 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
     }
 
     private void cargardatos() {
-        progres=new ProgressDialog(getContext());
+        /*progres=new ProgressDialog(getContext());
         progres.setMessage("Consultando Datos");
-        progres.show();
+        progres.show();*/
         String url="http://conecit.pe/conferencias.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -75,7 +75,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(getContext(),"no se pudo conectar"+error.toString(),Toast.LENGTH_SHORT).show();
         System.out.println();
-        progres.hide();
+        //progres.hide();
         Log.d("Error: ",error.toString());
 
     }
@@ -99,7 +99,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
                 listaConferencias.add(conferencias);
 
             }
-            progres.hide();
+            //progres.hide();
 
             ConferenciasAdapterRecyclerview adapter = new ConferenciasAdapterRecyclerview(listaConferencias,getActivity(),getContext());
             recyclerConferencias.setAdapter(adapter);

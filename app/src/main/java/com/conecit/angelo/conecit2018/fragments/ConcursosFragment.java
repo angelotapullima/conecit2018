@@ -36,7 +36,7 @@ import java.util.ArrayList;
 public class ConcursosFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener{
     RecyclerView recyclerConcursos;
     ArrayList<DatosConcursos> listaConcursos;
-    ProgressDialog progres;
+    //ProgressDialog progres;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -62,9 +62,9 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
     }
 
     private void cargardatos() {
-        progres=new ProgressDialog(getContext());
+        /*progres=new ProgressDialog(getContext());
         progres.setMessage("Consultando Datos");
-        progres.show();
+        progres.show();*/
         String url="http://conecit.pe/concursos.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -73,7 +73,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(getContext(),"no se pudo conectar"+error.toString(),Toast.LENGTH_SHORT).show();
         System.out.println();
-        progres.hide();
+        //progres.hide();
         Log.d("Error: ",error.toString());
 
     }
@@ -94,7 +94,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
                 listaConcursos.add(concursos);
 
             }
-            progres.hide();
+            //progres.hide();
 
             ConcursosAdapterRecyclerview adapter = new ConcursosAdapterRecyclerview(listaConcursos,getActivity(),getContext());
             recyclerConcursos.setAdapter(adapter);

@@ -35,7 +35,7 @@ import java.util.ArrayList;
 public class TalleresFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
     RecyclerView recyclerTalleres;
     ArrayList<DatosTalleres> listaTalleres;
-    ProgressDialog progres;
+    //ProgressDialog progres;
     RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
@@ -66,9 +66,9 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
 
     private void cargardatos() {
 
-        progres=new ProgressDialog(getContext());
+        /*progres=new ProgressDialog(getContext());
         progres.setMessage("Consultando Datos");
-        progres.show();
+        progres.show();*/
         String url="http://conecit.pe/talleres.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         request.add(jsonObjectRequest);
@@ -77,7 +77,7 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(getContext(),"no se pudo conectar"+error.toString(),Toast.LENGTH_SHORT).show();
         System.out.println();
-        progres.hide();
+        //progres.hide();
         Log.d("Error: ",error.toString());
 
     }
@@ -102,7 +102,7 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
                 listaTalleres.add(talleres);
 
             }
-            progres.hide();
+            //progres.hide();
 
             TalleresAdapterRecyclerview adapter = new TalleresAdapterRecyclerview(listaTalleres,getActivity(),getContext());
             recyclerTalleres.setAdapter(adapter);
