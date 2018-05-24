@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConcursosAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConcursos;
+import com.conecit.angelo.conecit2018.model.SingletonConecit;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
     RecyclerView recyclerConcursos;
     ArrayList<DatosConcursos> listaConcursos;
     //ProgressDialog progres;
-    RequestQueue request;
+    //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
 
@@ -56,7 +57,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         recyclerConcursos=view.findViewById(R.id.cocursosRecycler);
         recyclerConcursos.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerConcursos.setHasFixedSize(true);
-        request = Volley.newRequestQueue(getContext());
+        //request = Volley.newRequestQueue(getContext());
         cargardatos();
         return view;
     }
@@ -67,7 +68,8 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         progres.show();*/
         String url="http://conecit.pe/concursos.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        request.add(jsonObjectRequest);
+        //request.add(jsonObjectRequest);
+        SingletonConecit.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
     }
     @Override
     public void onErrorResponse(VolleyError error) {

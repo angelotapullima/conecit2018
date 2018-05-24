@@ -31,7 +31,7 @@ public class TalleresAdapterRecyclerview extends RecyclerView.Adapter<TalleresAd
     private Activity activityTaller;
     private Context context;
     private RequestOptions options ;
-    private RequestQueue request;
+    //private RequestQueue request;
 
     public TalleresAdapterRecyclerview(ArrayList<DatosTalleres> listaTalleres, Activity activityTaller, Context context) {
         this.listaTalleres = listaTalleres;
@@ -41,7 +41,7 @@ public class TalleresAdapterRecyclerview extends RecyclerView.Adapter<TalleresAd
                 .centerCrop()
                 .placeholder(R.drawable.image)
                 .error(R.drawable.image);
-        request=Volley.newRequestQueue(context);
+        //request=Volley.newRequestQueue(context);
     }
 
     @NonNull

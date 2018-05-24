@@ -29,7 +29,7 @@ public class ConcursosAdapterRecyclerview extends RecyclerView.Adapter<Concursos
     private Activity activityConcursos;
     private Context context;
     private RequestOptions options ;
-    private RequestQueue request;
+    //private RequestQueue request;
 
     public ConcursosAdapterRecyclerview(ArrayList<DatosConcursos> listaConcursos, Activity activityConcursos, Context context) {
         this.listaConcursos = listaConcursos;
@@ -39,7 +39,7 @@ public class ConcursosAdapterRecyclerview extends RecyclerView.Adapter<Concursos
                 .centerCrop()
                 .placeholder(R.drawable.image)
                 .error(R.drawable.image);
-        request= Volley.newRequestQueue(context);
+        //request= Volley.newRequestQueue(context);
     }
 
     @NonNull

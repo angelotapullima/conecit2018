@@ -30,7 +30,7 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
     private Activity activityConferencias;
     private Context context;
     private RequestOptions options ;
-    private RequestQueue request;
+    //private RequestQueue request;
 
     public ConferenciasAdapterRecyclerview(ArrayList<DatosConferencias> listaConferencias,  Activity activityConferencias , Context context) {
         this.listaConferencias = listaConferencias;
@@ -40,7 +40,7 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
                 .centerCrop()
                 .placeholder(R.drawable.image)
                 .error(R.drawable.image);
-        request= Volley.newRequestQueue(context);
+        //request= Volley.newRequestQueue(context);
 
     }
 

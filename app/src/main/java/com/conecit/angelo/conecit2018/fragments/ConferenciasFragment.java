@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConferenciasAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConferencias;
+import com.conecit.angelo.conecit2018.model.SingletonConecit;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
     RecyclerView recyclerConferencias;
     ArrayList<DatosConferencias> listaConferencias;
     //ProgressDialog progres;
-    RequestQueue request;
+    //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
 
 
@@ -56,7 +57,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         recyclerConferencias=view.findViewById(R.id.confeRecycler);
         recyclerConferencias.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerConferencias.setHasFixedSize(true);
-        request = Volley.newRequestQueue(getContext());
+        //request = Volley.newRequestQueue(getContext());
         cargardatos();
         return view;
 
@@ -68,7 +69,8 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         progres.show();*/
         String url="http://conecit.pe/conferencias.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        request.add(jsonObjectRequest);
+        //request.add(jsonObjectRequest);
+        SingletonConecit.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     @Override
