@@ -1,7 +1,9 @@
 package com.conecit.angelo.conecit2018.fragments;
 
 
-import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -10,16 +12,18 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
+import com.conecit.angelo.conecit2018.LoginActivity;
 import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConferenciasAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConferencias;
@@ -40,6 +44,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
     //ProgressDialog progres;
     //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
+    private SharedPreferences pref;
 
 
     public ConferenciasFragment() {
@@ -52,7 +57,15 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conferencias, container, false);
+        setHasOptionsMenu(true);
+        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+
+
         showToolbar(getResources().getString(R.string.tab_conferencias),false,view);
+
+
+
+
         listaConferencias=new ArrayList<>();
         recyclerConferencias=view.findViewById(R.id.confeRecycler);
         recyclerConferencias.setLayoutManager(new LinearLayoutManager(this.getContext()));
@@ -62,6 +75,29 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         return view;
 
     }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout :
+                logout();
+                //Log.i("item id ", item.getItemId() + "");
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    private void logout(){
+        Intent i = new Intent(getContext(), LoginActivity.class);
+        pref.edit().clear().apply();
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(i);
+
+    }
+
 
     private void cargardatos() {
         /*progres=new ProgressDialog(getContext());
@@ -112,6 +148,8 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         }
 
     }
+
+
     public void showToolbar(String tittle, boolean upButton, View view){
         Toolbar toolbar = (Toolbar)view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);

@@ -1,11 +1,14 @@
 package com.conecit.angelo.conecit2018;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -26,6 +29,9 @@ import com.google.firebase.database.ValueEventListener;
 public class LoginActivity extends AppCompatActivity {
 
     Button btnLogin;
+    private SharedPreferences pref;
+    TextInputEditText lopassword;
+    TextInputEditText lousername;
     //private FirebaseAuth firebaseAuth;
 
     @Override
@@ -33,13 +39,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         //firebaseAuth = FirebaseAuth.getInstance();
+        pref= getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+
 
         final FirebaseDatabase databaseReference = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = databaseReference.getReference("Usuarios");
 
-        final TextInputEditText lopassword = (TextInputEditText)findViewById(R.id.edtpassword);
-        final TextInputEditText lousername = (TextInputEditText)findViewById(R.id.edtuser);
+        lopassword = (TextInputEditText)findViewById(R.id.edtpassword);
+        lousername = (TextInputEditText)findViewById(R.id.edtuser);
         btnLogin=(Button)findViewById(R.id.login);
+
+        setCredentialIfExist();
         //progressBar = (ProgressBar)findViewById(R.id.progresBar);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -48,11 +58,11 @@ public class LoginActivity extends AppCompatActivity {
                 final ProgressDialog mdialog = new ProgressDialog(LoginActivity.this);
                 mdialog.setMessage("Cargando...");
                 mdialog.show();
-                String email = lousername.getText().toString().trim();
+                final String user = lousername.getText().toString().trim();
 
-                String password = lopassword.getText().toString().trim();
+                final String password = lopassword.getText().toString().trim();
 
-                if(email.equals("")){
+                if(user.equals("")){
                     Toast.makeText(getApplicationContext(),"Ingresar email",Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -65,15 +75,17 @@ public class LoginActivity extends AppCompatActivity {
                 table_user.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.child(lousername.getText().toString()).exists())
+                        if (dataSnapshot.child(user).exists())
                         {
                             mdialog.dismiss();
-                            Usuarios usuarios = dataSnapshot.child(lousername.getText().toString()).getValue(Usuarios.class);
-                            if (usuarios.getContraseña().equals(lopassword.getText().toString()))
+                            Usuarios usuarios = dataSnapshot.child(user).getValue(Usuarios.class);
+                            if (usuarios.getContraseña().equals(password))
                             {
                                 Toast.makeText(LoginActivity.this,"Bienvenido",Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(i);
+                                SavePreference(user,password);
 
                             }else
                             {
@@ -94,25 +106,34 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
-
-
-                /*firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this,"Login Failed",Toast.LENGTH_SHORT).show();
-                        }else
-                        {
-
-                            Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                            startActivity(i);
-                        }
-                    }
-                });*/
-
             }
         });
     }
+
+    private void setCredentialIfExist() {
+        String user = getUser();
+        String password = getPass();
+        if (!TextUtils.isEmpty(user)&& !TextUtils.isEmpty(password)){
+            lousername.setText(user);
+            lopassword.setText(password);
+        }
+    }
+
+    private void SavePreference(String email, String password){
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("user",email);
+        editor.putString("pass",password);
+        editor.apply();
+
+    }
+
+    private String getUser(){
+        return pref.getString("user","");
+    }
+    private String getPass(){
+        return pref.getString("pass","");
+    }
+
 
 
 

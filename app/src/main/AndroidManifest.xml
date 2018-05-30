@@ -5,13 +5,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/inicio"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity">
+
+        </activity>
         <activity
             android:name=".CrearCuenta"
             android:parentActivityName=".LoginActivity">
@@ -41,11 +44,18 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".Details.DetailsConcursos" />
         <activity
             android:name=".Splash"
-            android:label="@string/conecit">
+            android:label="conecit 2018">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
 
         </activity>
         <activity android:name=".InscripcionTallerActivity">

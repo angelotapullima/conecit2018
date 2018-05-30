@@ -74,48 +74,6 @@ public class CrearCuenta extends AppCompatActivity {
                     }
                 });
 
-                /*String nombre = etname.getText().toString().trim();
-                String usuario = etuser.getText().toString().trim();
-                String correo = etemail.getText().toString().trim();
-                String contraseña = etpassword.getText().toString().trim();
-                String confirm = etconfirm.getText().toString().trim();
-
-                Usuarios datos = new Usuarios(nombre,usuario,correo,contraseña);
-                //databaseReference.child("Usuarios").child(usuario).setValue(datos);
-
-
-                /*if(!contraseña.equals(confirm)){
-                    if (contraseña.equals("")){
-
-                    }
-                        //Toast.makeText(getApplicationContext(),"Contraseñas Invalida",Toast.LENGTH_LONG).show();
-                    }
-                    //return;
-
-
-
-
-                /*if(email.equals("")){
-                    Toast.makeText(getApplicationContext(),"Ingresar email",Toast.LENGTH_LONG).show();
-                    return;
-                }
-                if(!password.equals(confirm)){
-                    if (password.equals("")){
-                        Toast.makeText(getApplicationContext(),"Contraseñas Invalida",Toast.LENGTH_LONG).show();
-                    }
-                    return;
-                }
-                firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(CrearCuenta.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (!task.isSuccessful()){
-                            Toast.makeText(CrearCuenta.this,"Auth Failed",Toast.LENGTH_LONG).show();
-                        }else{
-                            startActivity(new Intent(CrearCuenta.this,LoginActivity.class));
-                            finish();
-                        }
-                    }
-                });*/
 
 
             }
