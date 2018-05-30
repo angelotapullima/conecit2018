@@ -21,7 +21,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.conecit.angelo.conecit2018.Details.DetailsTaller1;
 import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.model.DatosTalleres;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;

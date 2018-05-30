@@ -126,6 +126,6 @@
         app:fabSize="normal"
         app:layout_anchorGravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_add_circle" />
+        android:src="@drawable/ic_mas" />
     
 </android.support.design.widget.CoordinatorLayout>

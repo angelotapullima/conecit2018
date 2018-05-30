@@ -2,6 +2,8 @@ package com.conecit.angelo.conecit2018.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -24,12 +26,18 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConcursosAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConcursos;
 import com.conecit.angelo.conecit2018.model.SingletonConecit;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,13 +61,36 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_concursos, container, false);
         showToolbar(getResources().getString(R.string.tab_concursos),false,view);
-        listaConcursos=new ArrayList<>();
+        loadDatos();
+        //listaConcursos=new ArrayList<>();
         recyclerConcursos=view.findViewById(R.id.cocursosRecycler);
         recyclerConcursos.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerConcursos.setHasFixedSize(true);
         //request = Volley.newRequestQueue(getContext());
         cargardatos();
+
         return view;
+    }
+
+    private void saveDatos() {
+        SharedPreferences pref = getActivity().getSharedPreferences("shared",MODE_PRIVATE);
+        SharedPreferences.Editor edt = pref.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(listaConcursos);
+        edt.putString("concursos list", json);
+        edt.apply();
+    }
+    private  void loadDatos(){
+        SharedPreferences pref = getActivity().getSharedPreferences("shared",MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = pref.getString("concursos list",null);
+        Type type = new TypeToken<ArrayList<DatosConcursos>>(){}.getType();
+        listaConcursos = gson.fromJson(json ,type);
+        if(listaConcursos==null){
+            listaConcursos= new ArrayList<>();
+        }
+
+
     }
 
     private void cargardatos() {
@@ -70,6 +101,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         //request.add(jsonObjectRequest);
         SingletonConecit.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
+        saveDatos();
     }
     @Override
     public void onErrorResponse(VolleyError error) {

@@ -12,8 +12,634 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical">
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lunes"
+                    android:gravity="center_horizontal"
+                    android:textSize="25sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="8:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="REGISTRO"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Entrega de Materiales y acreditaiones"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="10:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="CEREMONIA DE INAUGURACIÓN"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Entrega de Materiales y acreditaiones"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text="RECESO"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="16dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:OO PM - 2:OO PM "
+                    android:textSize="10sp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="2:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Conferencia Internacional"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Stephanie Falla - Comunicadora con un Master en E-learning "
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="4:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Analisis de Inundaciones con Imagenes Satelitales "
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Avid Roman - Senior Member IEEE "
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="6:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Extracción de patrones frecuentes con IA"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Hugo Alatrista salas - Doctor en Ciencias de la Computación "
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Martes"
+                    android:gravity="center_horizontal"
+                    android:textSize="25sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="8:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Conferencia Nacional"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Conferencia Nacional"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="10:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tecnologías para la amazonía"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Isaac Ocampo - Coordinador del Centro de Alto Rendimiento Computacional - IIAP"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text="RECESO"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="16dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:OO PM - 2:OO PM "
+                    android:textSize="10sp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="2:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Uso de la realidad virtual en el mundo real"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Elvis Rivera - Director de ConvocaLab"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="4:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Desarrolla tu aplicación de forma ágil y robusta con Firebase "
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Juan Gomez - Google developer expert in firebase"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="6:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="95dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DISEÑO DE UNA PROPUESTA SMAART CITY UTILIZANDO UNA TECNOLOGIA OPEN HARDWARE BAJO UN MODELO BASADO EN PERU"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Jorge Guerra - Responsable del NIIT de Robotica e Internet de las Cosas UNMSM "
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Miércoles"
+                    android:gravity="center_horizontal"
+                    android:textSize="25sp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="8:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Machine Learning e Inteligencia artificial: Aplicaciones en la industria"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Alvaro Talavera - Senior Member y Presidente del Capítulo Profesional IEEE (TEMS)"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="10:00 AM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Computación de alto rendimiento"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Gines Guerrero - DIRECTOR DEL NLHPC"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text="RECESO"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="16dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12:OO PM - 2:OO PM "
+                    android:textSize="10sp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="2:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Uso de la realidad virtual en el mundo real"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Elvis Rivera - Director de ConvocaLab"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="4:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Desarrolla tu aplicación de forma ágil y robusta con Firebase "
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Juan Gomez - Google developer expert in firebase"
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:text="6:00 PM"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginLeft="16dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/darker_gray"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="95dp"
+                    android:orientation="vertical"
+                    android:background="@android:color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="DISEÑO DE UNA PROPUESTA SMAART CITY UTILIZANDO UNA TECNOLOGIA OPEN HARDWARE BAJO UN MODELO BASADO EN PERU"
+                        android:textColor="@android:color/black"
+                        android:layout_marginLeft="16dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Jorge Guerra - Responsable del NIIT de Robotica e Internet de las Cosas UNMSM "
+                        android:layout_marginLeft="16dp"/>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
 
 
     </LinearLayout>

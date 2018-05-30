@@ -48,7 +48,7 @@
                     android:theme="@style/EditTextWhite">
                     <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
-                        android:id="@+id/lousername"
+                        android:id="@+id/edtuser"
                         android:hint="@string/hint_username"
                         android:layout_height="wrap_content" />
 
@@ -60,18 +60,29 @@
                     <android.support.design.widget.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/lopassword"
+                        android:id="@+id/edtpassword"
                         android:inputType="textPassword"
                         android:hint="@string/hint_password"
                         />
 
                 </android.support.design.widget.TextInputLayout>
-                <Button
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/login"
-                    android:text="@string/text_button_login"
-                    android:theme="@style/RaisedButtonDark"/>
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/progresBar"/>
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/login"
+                        android:text="@string/text_button_login"
+                        android:theme="@style/RaisedButtonDark"/>
+
+                </FrameLayout>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

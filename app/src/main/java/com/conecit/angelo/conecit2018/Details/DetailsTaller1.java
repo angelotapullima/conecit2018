@@ -1,7 +1,9 @@
 package com.conecit.angelo.conecit2018.Details;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.conecit.angelo.conecit2018.InscripcionActivity;
 import com.conecit.angelo.conecit2018.R;
 
 public class DetailsTaller1 extends AppCompatActivity {
@@ -23,6 +26,7 @@ public class DetailsTaller1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_taller1);
         showToolbar("",true);
+        FloatBtn();
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
             getWindow().setEnterTransition(new Fade());
@@ -63,5 +67,17 @@ public class DetailsTaller1 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbarDt);
 
+    }
+
+    public void FloatBtn (){
+        FloatingActionButton fabc = (FloatingActionButton)findViewById(R.id.floatTaller);
+        fabc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailsTaller1.this, InscripcionActivity.class);
+                startActivity(i);
+
+            }
+        });
     }
 }

@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "418430204799",
+    "firebase_url": "https://fireappconecit.firebaseio.com",
+    "project_id": "fireappconecit",
+    "storage_bucket": "fireappconecit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418430204799:android:12c475d9a8efc4b0",
+        "android_client_info": {
+          "package_name": "com.conecit.angelo.conecit2018"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418430204799-p1mjengkdeoom86kutuebs9c9319s8lc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.conecit.angelo.conecit2018",
+            "certificate_hash": "1857d239b3d06cc6ccaa51900d073d1d669fef7a"
+          }
+        },
+        {
+          "client_id": "418430204799-lqbcod5bdmuln79lqrbo6rbb6dmv8dk9.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "418430204799-lqbcod5bdmuln79lqrbo6rbb6dmv8dk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBejGSwRyTy5KtGdTno1ZKpIIOUKnQpOVs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418430204799-lqbcod5bdmuln79lqrbo6rbb6dmv8dk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
