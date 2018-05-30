@@ -35,10 +35,6 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/conecit"></activity>
-        <activity android:name=".Details.DetailsConcursos" />
-        <activity
-            android:name=".Splash"
             android:label="@string/conecit">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +42,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InscripcionActivity"></activity>
+        <activity android:name=".Details.DetailsConcursos" />
+        <activity
+            android:name=".Splash"
+            android:label="@string/conecit">
+
+        </activity>
+        <activity android:name=".InscripcionTallerActivity">
+
+        </activity>
     </application>
 
 </manifest>

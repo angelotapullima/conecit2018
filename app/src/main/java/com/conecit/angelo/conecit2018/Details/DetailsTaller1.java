@@ -4,11 +4,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.transition.Explode;
 import android.transition.Fade;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.conecit.angelo.conecit2018.InscripcionActivity;
+import com.conecit.angelo.conecit2018.InscripcionTallerActivity;
 import com.conecit.angelo.conecit2018.R;
 
 public class DetailsTaller1 extends AppCompatActivity {
@@ -74,7 +72,7 @@ public class DetailsTaller1 extends AppCompatActivity {
         fabc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(DetailsTaller1.this, InscripcionActivity.class);
+                Intent i = new Intent(DetailsTaller1.this, InscripcionTallerActivity.class);
                 startActivity(i);
 
             }
