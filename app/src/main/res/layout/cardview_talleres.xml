@@ -2,10 +2,12 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_cardview"
+    android:layout_height="wrap_content"
+    android:elevation="10dp"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/contenidoCard"
     cardview:cardCornerRadius="@dimen/cornersradius_cardview">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,24 +46,25 @@
                 android:textSize="15sp"/>
 
 
-                <TextView
-                    android:id="@+id/duracionTalleresCard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/edittextColorWhite"
-                    android:text="@string/duracion_talleres"
-                    android:textSize="12sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/precioTallerCard"
-                    android:textColor="@color/edittextColorWhite"
-                    android:text="@string/precio_taller"
-                    android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/duracionTalleresCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/edittextColorWhite"
+                android:text="@string/duracion_talleres"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/precioTallerCard"
+                android:textColor="@color/edittextColorWhite"
+                android:text="@string/precio_taller"
+                android:textSize="12sp"/>
 
 
 
         </LinearLayout>
     </FrameLayout>
+
 
 </android.support.v7.widget.CardView>
