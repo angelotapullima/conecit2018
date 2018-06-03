@@ -1,70 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:elevation="10dp"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/contenidoCard"
-    cardview:cardCornerRadius="@dimen/cornersradius_cardview">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
 
-    <FrameLayout
+    >
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/activity_vertical_margin">
+        android:layout_height="wrap_content"
+        cardview:cardElevation="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        cardview:cardCornerRadius="4dp"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/contenidoCard">
 
-        <ImageView
+        <FrameLayout
             android:layout_width="match_parent"
-            android:id="@+id/imagentalleresCard"
-            android:layout_height="@dimen/height_cardview"
-            android:background="@drawable/image"
-            android:scaleType="centerCrop"
-            android:transitionName="@string/transition_imagentalleres"/>
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:background="@color/backgroundtext_card"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingBottom="5dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/imagentalleresCard"
+                android:layout_height="@dimen/height_cardview"
+                android:background="@drawable/image"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transition_imagentalleres"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tituloTalleresCard"
-                android:text="@string/username_card"
-                android:textColor="@color/edittextColorWhite"
-                android:textSize="18sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/ponenteTallerCard"
-                android:text="@string/ponente_card"
-                android:textColor="@color/edittextColorWhite"
-                android:textSize="15sp"/>
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:background="@color/backgroundtext_card"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingBottom="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tituloTalleresCard"
+                    android:text="@string/username_card"
+                    android:textColor="@color/edittextColorWhite"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ponenteTallerCard"
+                    android:text="@string/ponente_card"
+                    android:textColor="@color/edittextColorWhite"
+                    android:textSize="15sp"/>
 
 
-            <TextView
-                android:id="@+id/duracionTalleresCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/edittextColorWhite"
-                android:text="@string/duracion_talleres"
-                android:textSize="12sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/precioTallerCard"
-                android:textColor="@color/edittextColorWhite"
-                android:text="@string/precio_taller"
-                android:textSize="12sp"/>
+                <TextView
+                    android:id="@+id/duracionTalleresCard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/edittextColorWhite"
+                    android:text="@string/duracion_talleres"
+                    android:textSize="12sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/precioTallerCard"
+                    android:textColor="@color/edittextColorWhite"
+                    android:text="@string/precio_taller"
+                    android:textSize="12sp"/>
 
 
 
-        </LinearLayout>
-    </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
 
 
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

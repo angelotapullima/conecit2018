@@ -1,45 +1,56 @@
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_cardview"
-    xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/contenidoconfeCard"
-    cardview:cardCornerRadius="@dimen/cornersradius_cardview"
-    android:layout_marginBottom="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
 
-    <FrameLayout
+    >
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/activity_vertical_margin">
-
-        <ImageView
+        android:layout_height="wrap_content"
+        cardview:cardElevation="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        cardview:cardCornerRadius="4dp"
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/contenidoCard">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:id="@+id/imagenconcursosCard"
-            android:layout_height="@dimen/height_cardview"
-            android:background="@drawable/image"
-            android:scaleType="centerCrop"
-            android:transitionName="@string/transition_imagentalleres"/>
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:background="@color/backgroundtext_card"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingBottom="@dimen/activity_vertical_margin">
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/imagenconcursosCard"
+                android:layout_height="@dimen/height_cardview"
+                android:background="@drawable/image"
+                android:scaleType="centerCrop"
+                android:transitionName="@string/transition_imagentalleres"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tituloconcursosCard"
-                android:text="@string/titulo_concursos"
-                android:textColor="@color/edittextColorWhite"
-                android:textSize="@dimen/textsize_username_card"/>
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:background="@color/backgroundtext_card"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tituloconcursosCard"
+                    android:text="@string/titulo_concursos"
+                    android:textColor="@color/edittextColorWhite"
+                    android:textSize="@dimen/textsize_username_card"/>
 
 
 
-        </LinearLayout>
-    </FrameLayout>
+            </LinearLayout>
+        </FrameLayout>
 
-</android.support.v7.widget.CardView>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

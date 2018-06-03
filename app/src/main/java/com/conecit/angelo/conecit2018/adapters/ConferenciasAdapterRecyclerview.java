@@ -48,6 +48,7 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
     @Override
     public ConferenciasAdapterRecyclerview.Conferenciasviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_conferencias,parent,false);
+
         RecyclerView.LayoutParams layoutParams = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         view.setLayoutParams(layoutParams);
         return new Conferenciasviewholder(view);
@@ -58,6 +59,7 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
 
         holder.tituloconfeCard.setText(listaConferencias.get(position).getTituloconfe());
         holder.ponenteconfeCard.setText(listaConferencias.get(position).getPonenteconfe());
+
         Glide.with(context).load(listaConferencias.get(position).getImagenconfe()).apply(options).into(holder.imageconfeCard);
         holder.imageconfeCard.setOnClickListener(new View.OnClickListener() {
             @Override

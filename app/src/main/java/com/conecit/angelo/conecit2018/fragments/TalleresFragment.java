@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,6 +37,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,13 +58,14 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_talleres, container, false);
+
         setHasOptionsMenu(true);
-        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        pref = (this.getActivity()).getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         showToolbar(getResources().getString(R.string.tab_talleres),false,view);
 
         listaTalleres=new ArrayList<>();
@@ -70,7 +73,7 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
         recyclerTalleres.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerTalleres.setHasFixedSize(true);
         //request = Volley.newRequestQueue(getContext());
-        
+
         cargardatos();
         return view;
     }
@@ -149,11 +152,13 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
     }
 
 
-    public void showToolbar(String tittle, boolean upButton, View view){
-        Toolbar toolbar = (Toolbar)view.findViewById(R.id.toolbar);
+    public void showToolbar(String tittle, boolean upButton,View view){
+
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(tittle);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
+        (((AppCompatActivity) getActivity()).getSupportActionBar()).setTitle(tittle);
+        (((AppCompatActivity) getActivity()).getSupportActionBar()).setDisplayHomeAsUpEnabled(upButton);
+
 
     }
 
