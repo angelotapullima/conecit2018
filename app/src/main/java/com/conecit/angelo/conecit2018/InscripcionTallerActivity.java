@@ -28,13 +28,12 @@ public class InscripcionTallerActivity extends AppCompatActivity {
         final FirebaseDatabase databaseReference = FirebaseDatabase.getInstance();
         final DatabaseReference table_user = databaseReference.getReference("Talleres");
 
-        final TextInputEditText etemail = (TextInputEditText)findViewById(R.id.itemail);
-        final TextInputEditText etname = (TextInputEditText)findViewById(R.id.itname);
-        final TextInputEditText etuser = (TextInputEditText)findViewById(R.id.ituser);
-        final TextInputEditText etpassword = (TextInputEditText)findViewById(R.id.itpas);
-        final TextInputEditText etconfirm = (TextInputEditText)findViewById(R.id.confirmpassword);
+        final TextInputEditText etemail = findViewById(R.id.itemail);
+        final TextInputEditText etname = findViewById(R.id.itname);
+        final TextInputEditText etuser = findViewById(R.id.ituser);
+        final TextInputEditText etpassword = findViewById(R.id.itpas);
 
-        Button btnUs = (Button)findViewById(R.id.Us);
+        Button btnUs = findViewById(R.id.Us);
         btnUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +48,8 @@ public class InscripcionTallerActivity extends AppCompatActivity {
                         if (dataSnapshot.child(etuser.getText().toString()).exists())
                         {
                             mdialog.dismiss();
-                            Toast.makeText(InscripcionTallerActivity.this,"Usuario ya registrado ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(InscripcionTallerActivity.this,"El Usuario ya fue registrado ",Toast.LENGTH_SHORT).show();
+                            finish();
                         } else {
                             mdialog.dismiss();
                             InscritosTalleres inscritos = new InscritosTalleres(etemail.getText().toString(),etuser.getText().toString(),etname.getText().toString(),etpassword.getText().toString());
@@ -60,7 +60,6 @@ public class InscripcionTallerActivity extends AppCompatActivity {
 
                             finish();
                         }
-
                     }
 
                     @Override
@@ -69,11 +68,12 @@ public class InscripcionTallerActivity extends AppCompatActivity {
                     }
                 });
             }
+
         });
 
     }
     public void showToolbar(String tittle, boolean upButton){
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);

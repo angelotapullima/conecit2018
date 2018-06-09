@@ -31,8 +31,7 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConcursosAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConcursos;
 import com.conecit.angelo.conecit2018.model.SingletonConecit;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;

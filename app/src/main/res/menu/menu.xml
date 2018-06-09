@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="search"
+        app:showAsAction="always"
+        android:id="@+id/Searchview"
+        android:icon="@drawable/ic_search"
+        app:actionViewClass="android.widget.SearchView">
+
+    </item>
     <item android:id="@+id/logout"
         android:title="Cerrar Sesion"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never">
+
+    </item>
 
 
 </menu>

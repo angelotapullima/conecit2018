@@ -19,4 +19,5 @@
     <dimen name="paddingtop_titleimageDetails">20dp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
+
 </resources>
