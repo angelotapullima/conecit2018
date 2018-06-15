@@ -1,94 +1,89 @@
 package com.conecit.angelo.conecit2018;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
-import android.support.design.widget.TextInputEditText;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-
-import com.conecit.angelo.conecit2018.model.Usuarios;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-public class CrearCuenta extends AppCompatActivity {
 
 
-    //DatabaseReference databaseReference;
+public class CrearCuenta extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnRegistrar;
+    TextView btnlogin , btnContraeña_olvidada;
+    EditText ingresar_email, ingresar_contraseña;
+    RelativeLayout activity_sign_up;
+
+    private FirebaseAuth auth;
+    Snackbar snackbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta);
-        showToolbar(getResources().getString(R.string.toolbar_tittle_createaccount),true);
 
-        final FirebaseDatabase databaseReference = FirebaseDatabase.getInstance();
-        final DatabaseReference table_user = databaseReference.getReference("Usuarios");
+        btnRegistrar = findViewById(R.id.signup_btn_register);
+        btnlogin = findViewById(R.id.signup_btn_login);
+        btnContraeña_olvidada = findViewById(R.id.signup_btn_forgot_pass);
+        ingresar_email = findViewById(R.id.signup_email);
+        ingresar_contraseña = findViewById(R.id.signup_password);
+        activity_sign_up = findViewById(R.id.activity_sign_up);
 
-        final TextInputEditText etemail = (TextInputEditText)findViewById(R.id.caemail);
-        final TextInputEditText etname = (TextInputEditText)findViewById(R.id.caname);
-        final TextInputEditText etuser = (TextInputEditText)findViewById(R.id.edtuser);
-        final TextInputEditText etpassword = (TextInputEditText)findViewById(R.id.edtpassword);
-        final TextInputEditText etconfirm = (TextInputEditText)findViewById(R.id.confirmpassword);
 
-        Button btnCreateAccount = (Button)findViewById(R.id.joinUs);
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnlogin.setOnClickListener(this);
+        btnRegistrar.setOnClickListener(this);
+        btnContraeña_olvidada.setOnClickListener(this);
+        auth = FirebaseAuth.getInstance();
 
-                final ProgressDialog mdialog = new ProgressDialog(CrearCuenta.this);
-                mdialog.setMessage("Cargando...");
-                mdialog.show();
 
-                table_user.addValueEventListener(new ValueEventListener() {
+    }
+
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == R.id.signup_btn_login)
+        {
+            startActivity(new Intent(CrearCuenta.this,LoginActivity.class));
+            finish();
+        }
+        else if (v.getId()==R.id.signup_btn_forgot_pass)
+        {
+            startActivity(new Intent(CrearCuenta.this,Forgot_Password.class));
+            finish();
+        }else if (v.getId()==R.id.signup_btn_register)
+        {
+            signUpUser(ingresar_email.getText().toString(),ingresar_contraseña.getText().toString());
+        }
+
+    }
+
+    private void signUpUser(String email, String contraseña) {
+        auth.createUserWithEmailAndPassword(email,contraseña)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.child(etuser.getText().toString()).exists())
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (!task.isSuccessful())
                         {
-                            mdialog.dismiss();
-                            Toast.makeText(CrearCuenta.this,"Usuario ya registrado ",Toast.LENGTH_SHORT).show();
-                        } else {
-                            mdialog.dismiss();
-                            Usuarios usuario = new Usuarios(etemail.getText().toString(),etuser.getText().toString(),etname.getText().toString(),etpassword.getText().toString());
-                            table_user.child(etuser.getText().toString()).setValue(usuario);
-                            Toast.makeText(CrearCuenta.this,"Usuario registrado",Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(CrearCuenta.this,LoginActivity.class);
-                            startActivity(i);
-
-                            finish();
+                            snackbar = Snackbar.make(activity_sign_up,"Error: "+task.getException(),Snackbar.LENGTH_SHORT);
+                            snackbar.show();
+                        }
+                        else {
+                            snackbar = Snackbar.make(activity_sign_up,"Registro exitoso: ",Snackbar.LENGTH_SHORT);
+                            snackbar.show();
                         }
 
                     }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
                 });
-
-
-
-            }
-        });
-
     }
-
-
-    public void showToolbar(String tittle, boolean upButton){
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(tittle);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-
-    }
-
-
 }

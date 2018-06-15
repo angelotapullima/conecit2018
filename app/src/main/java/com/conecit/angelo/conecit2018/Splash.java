@@ -12,18 +12,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Splash extends AppCompatActivity {
     private TextView textsplash;
     private ImageView imgsplash;
 
-    private SharedPreferences pref;
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        auth = FirebaseAuth.getInstance();
 
-        pref= getSharedPreferences("Preferences", Context.MODE_PRIVATE);
 
         textsplash=(TextView)findViewById(R.id.textsplash);
         imgsplash=(ImageView)findViewById(R.id.imgsplash);
@@ -36,18 +38,21 @@ public class Splash extends AppCompatActivity {
             Thread timer = new Thread(){
                 public void run (){
                     try{
-                        sleep(3000);
+                        sleep(2500);
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
                     finally {
-                        if(!TextUtils.isEmpty(getUser())&& !TextUtils.isEmpty(getPass())){
+                        if (auth.getCurrentUser() !=null){
+
                             startActivity(in);
+                            finish();
                         }else{
                             startActivity(i);
+                            finish();
                         }
 
-                        //finish();
+                        finish();
 
                     }
 
@@ -55,10 +60,5 @@ public class Splash extends AppCompatActivity {
             };
             timer.start();
     }
-    private String getUser(){
-        return pref.getString("user","");
-    }
-    private String getPass(){
-        return pref.getString("pass","");
-    }
+
 }

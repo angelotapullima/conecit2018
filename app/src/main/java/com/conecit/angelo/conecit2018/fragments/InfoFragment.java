@@ -17,13 +17,15 @@ import android.view.ViewGroup;
 
 import com.conecit.angelo.conecit2018.LoginActivity;
 import com.conecit.angelo.conecit2018.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class InfoFragment extends Fragment {
+    private FirebaseAuth auth;
 
-    private SharedPreferences pref;
+
 
     public InfoFragment() {
         // Required empty public constructor
@@ -36,7 +38,8 @@ public class InfoFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_info, container, false);
         setHasOptionsMenu(true);
-        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        auth = FirebaseAuth.getInstance();
+
         showToolbar(getResources().getString(R.string.tab_talleres),false,view);
         return view;
     }
@@ -57,10 +60,14 @@ public class InfoFragment extends Fragment {
         }
     }
     private void logout(){
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        pref.edit().clear().apply();
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+
+        auth.signOut();
+        if (auth.getCurrentUser() == null)
+        {
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
 
     }
 

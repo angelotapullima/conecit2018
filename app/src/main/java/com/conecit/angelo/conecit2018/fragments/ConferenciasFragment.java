@@ -28,6 +28,7 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConferenciasAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConferencias;
 import com.conecit.angelo.conecit2018.model.SingletonConecit;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,10 +42,10 @@ import java.util.ArrayList;
 public class ConferenciasFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
     RecyclerView recyclerConferencias;
     ArrayList<DatosConferencias> listaConferencias;
+    private FirebaseAuth auth;
     //ProgressDialog progres;
     //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    private SharedPreferences pref;
 
 
     public ConferenciasFragment() {
@@ -58,7 +59,7 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conferencias, container, false);
         setHasOptionsMenu(true);
-        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        auth = FirebaseAuth.getInstance();
 
 
         showToolbar(getResources().getString(R.string.tab_conferencias),false,view);
@@ -70,7 +71,6 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         recyclerConferencias=view.findViewById(R.id.confeRecycler);
         recyclerConferencias.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerConferencias.setHasFixedSize(true);
-        //request = Volley.newRequestQueue(getContext());
         cargardatos();
         return view;
 
@@ -85,24 +85,25 @@ public class ConferenciasFragment extends Fragment implements Response.Listener<
         switch (item.getItemId()) {
             case R.id.logout :
                 logout();
-                //Log.i("item id ", item.getItemId() + "");
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
     private void logout(){
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        pref.edit().clear().apply();
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+        auth.signOut();
+        if (auth.getCurrentUser() == null)
+        {
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
+
 
     }
 
 
     private void cargardatos() {
-        /*progres=new ProgressDialog(getContext());
-        progres.setMessage("Consultando Datos");
-        progres.show();*/
+
         String url="http://conecit.pe/conferencias.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
         //request.add(jsonObjectRequest);

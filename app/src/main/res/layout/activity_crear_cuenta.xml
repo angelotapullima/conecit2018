@@ -1,107 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/activity_sign_up"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:fitsSystemWindows="true"
     tools:context=".CrearCuenta">
 
-    <include layout="@layout/actionbar_toolbar"/>
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/conecit"
+        android:layout_width="200dp"
+        android:layout_height="100dp" />
 
-    <ScrollView
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/icon"
+        android:id="@+id/signup_input_email"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        >
+
+        <EditText
+            android:id="@+id/signup_email"
+            android:hint="Ingresar Email"
+            android:inputType="textCapWords"
+            android:maxLines="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/activity_vertical_margin"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="@dimen/edittext_margin_creteaccount">
+    </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/caemail"
-                    android:hint="@string/hint_email"
-                    />
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/signup_input_email"
+        android:id="@+id/signup_input_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
 
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="@dimen/edittext_margin_creteaccount">
+        <EditText
+            android:id="@+id/signup_password"
+            android:hint="Ingresar Contraseña"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/caname"
-                    android:hint="@string/hint_name"
-                    />
+    </android.support.design.widget.TextInputLayout>
 
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="@dimen/edittext_margin_creteaccount">
+    <Button
+        android:layout_below="@+id/signup_input_password"
+        android:id="@+id/signup_btn_register"
+        android:text="Registrar"
+        android:background="#263238"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/edtuser"
-                    android:hint="@string/hint_username"
-                    />
+    <TextView
+        android:layout_below="@+id/signup_btn_register"
+        android:id="@+id/signup_btn_forgot_pass"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:text="Olvido su contraseña ?"
+        android:textColor="@color/colorPrimaryDark"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="@dimen/edittext_margin_creteaccount">
+    <LinearLayout
+        android:id="@+id/signup_layout_or"
+        android:layout_below="@+id/signup_btn_forgot_pass"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hint_password"
-                    android:inputType="textPassword"
-                    android:id="@+id/edtpassword"
-                    />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="#c4c8c9"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:padding="5dp"
+            android:text="OR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="#c4c8c9"
+            android:layout_margin="5dp"/>
 
-            </android.support.design.widget.TextInputLayout>
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:theme="@style/EditTextBlack"
-                android:layout_marginTop="@dimen/edittext_margin_creteaccount">
+    </LinearLayout>
 
-                <android.support.design.widget.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/confirmpassword"
-                    android:inputType="textPassword"
-                    android:hint="@string/hint_password_confirm"
-                    />
-
-            </android.support.design.widget.TextInputLayout>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/joinUs"
-                android:text="@string/text_button_crearaccount"
-                android:theme="@style/RaisedButtonDark"/>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</android.support.design.widget.CoordinatorLayout>
+    <TextView
+        android:id="@+id/signup_btn_login"
+        android:layout_below="@+id/signup_layout_or"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:text="Already account ? Login me !"
+        android:textColor="@color/colorPrimaryDark"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

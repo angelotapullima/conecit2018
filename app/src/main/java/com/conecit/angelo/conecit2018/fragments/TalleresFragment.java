@@ -31,6 +31,7 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.TalleresAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosTalleres;
 import com.conecit.angelo.conecit2018.model.SingletonConecit;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,10 +46,8 @@ import java.util.Objects;
 public class TalleresFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener {
     RecyclerView recyclerTalleres;
     ArrayList<DatosTalleres> listaTalleres;
-    //ProgressDialog progres;
-    //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    private SharedPreferences pref;
+    private FirebaseAuth auth;
 
 
 
@@ -65,13 +64,13 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
         View view = inflater.inflate(R.layout.fragment_talleres, container, false);
 
         setHasOptionsMenu(true);
-        pref = (this.getActivity()).getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         showToolbar(getResources().getString(R.string.tab_talleres),false,view);
 
         listaTalleres=new ArrayList<>();
         recyclerTalleres=view.findViewById(R.id.talleresRecycler);
         recyclerTalleres.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerTalleres.setHasFixedSize(true);
+        auth = FirebaseAuth.getInstance();
         //request = Volley.newRequestQueue(getContext());
 
         cargardatos();
@@ -80,19 +79,15 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
 
     private void cargardatos() {
 
-        /*progres=new ProgressDialog(getContext());
-        progres.setMessage("Consultando Datos");
-        progres.show();*/
+
         String url="http://conecit.pe/talleres.json";
         jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url,null,this,this);
-        //request.add(jsonObjectRequest);
         SingletonConecit.getIntanciaVolley(getContext()).addToRequestQueue(jsonObjectRequest);
     }
     @Override
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(getContext(),"no se pudo conectar"+error.toString(),Toast.LENGTH_SHORT).show();
         System.out.println();
-        //progres.hide();
         Log.d("Error: ",error.toString());
 
     }
@@ -138,16 +133,18 @@ public class TalleresFragment extends Fragment implements Response.Listener<JSON
         switch (item.getItemId()) {
             case R.id.logout :
                 logout();
-                //Log.i("item id ", item.getItemId() + "");
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
     private void logout(){
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        pref.edit().clear().apply();
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+        auth.signOut();
+        if (auth.getCurrentUser() == null)
+        {
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
 
     }
 

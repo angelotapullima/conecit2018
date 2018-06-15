@@ -1,10 +1,12 @@
 package com.conecit.angelo.conecit2018;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment = null;
+
             switch (item.getItemId()) {
                 case R.id.cronogramaItem:
                     CronogramaFragment cronogramaFragment = new CronogramaFragment();
@@ -65,6 +67,26 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     };
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder mensaje=new AlertDialog.Builder(this);
+        mensaje.setTitle("¿Desea Salir de la Aplicacion?");
+        mensaje.setCancelable(false);
+        mensaje.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                moveTaskToBack(true);
+                finish();
+            }
+        });
+        mensaje.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        mensaje.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

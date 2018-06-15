@@ -31,6 +31,7 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConcursosAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConcursos;
 import com.conecit.angelo.conecit2018.model.SingletonConecit;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 import org.json.JSONArray;
@@ -49,10 +50,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class ConcursosFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener{
     RecyclerView recyclerConcursos;
     ArrayList<DatosConcursos> listaConcursos;
-    //ProgressDialog progres;
-    //RequestQueue request;
     JsonObjectRequest jsonObjectRequest;
-    private SharedPreferences pref;
+    private FirebaseAuth auth;
 
 
     public ConcursosFragment() {
@@ -66,14 +65,13 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_concursos, container, false);
         setHasOptionsMenu(true);
-        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
         showToolbar(getResources().getString(R.string.tab_concursos),false,view);
 
         listaConcursos=new ArrayList<>();
         recyclerConcursos=view.findViewById(R.id.cocursosRecycler);
         recyclerConcursos.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerConcursos.setHasFixedSize(true);
-        //request = Volley.newRequestQueue(getContext());
+        auth = FirebaseAuth.getInstance();
         cargardatos();
 
         return view;
@@ -138,16 +136,18 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
         switch (item.getItemId()) {
             case R.id.logout :
                 logout();
-                //Log.i("item id ", item.getItemId() + "");
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
     private void logout(){
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        pref.edit().clear().apply();
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+        auth.signOut();
+        if (auth.getCurrentUser() == null)
+        {
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
 
     }
 

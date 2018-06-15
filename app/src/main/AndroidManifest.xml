@@ -3,19 +3,18 @@
     package="com.conecit.angelo.conecit2018">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.hardware.camera2.full" />
+
     <meta-data
         android:name="com.google.firebase.messaging.default_notification_icon"
         android:resource="@mipmap/inicio" />
-    <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-         notification message. See README(https://goo.gl/6BKBk7) for more. -->
     <meta-data
         android:name="com.google.firebase.messaging.default_notification_color"
         android:resource="@color/colorAccent" />
 
-
-
     <application
-
         android:allowBackup="true"
         android:icon="@mipmap/inicio"
         android:label="@string/app_name"
@@ -48,10 +47,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:label="@string/conecit">
-
-
-        </activity>
+            android:label="@string/conecit" />
         <activity android:name=".Details.DetailsConcursos" />
         <activity
             android:name=".Splash"
@@ -61,25 +57,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-        <activity android:name=".InscripcionTallerActivity">
+        <activity android:name=".InscripcionTallerActivity" />
 
-        </activity>
-
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".MyFirebaseInstanceIDService">
+        <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name=".Forgot_Password" />
     </application>
 
 </manifest>

@@ -17,13 +17,15 @@ import android.view.ViewGroup;
 
 import com.conecit.angelo.conecit2018.LoginActivity;
 import com.conecit.angelo.conecit2018.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class CronogramaFragment extends Fragment {
 
-    private SharedPreferences pref;
+
+    private FirebaseAuth auth;
 
     public CronogramaFragment() {
         // Required empty public constructor
@@ -36,7 +38,7 @@ public class CronogramaFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_cronograma, container, false);
         setHasOptionsMenu(true);
-        pref = this.getActivity().getSharedPreferences("Preferences", Context.MODE_PRIVATE);
+        auth = FirebaseAuth.getInstance();
 
         showToolbar(getResources().getString(R.string.tab_cronograma),false,view);
         return view;
@@ -52,16 +54,18 @@ public class CronogramaFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.logout :
                 logout();
-                //Log.i("item id ", item.getItemId() + "");
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
     private void logout(){
-        Intent i = new Intent(getContext(), LoginActivity.class);
-        pref.edit().clear().apply();
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(i);
+        auth.signOut();
+        if (auth.getCurrentUser() == null)
+        {
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        }
 
     }
 
