@@ -1,15 +1,14 @@
 package com.conecit.angelo.conecit2018.fragments;
 
 
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,15 +17,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.conecit.angelo.conecit2018.LoginActivity;
+import com.conecit.angelo.conecit2018.Login.LoginActivity;
 import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.adapters.ConcursosAdapterRecyclerview;
 import com.conecit.angelo.conecit2018.model.DatosConcursos;
@@ -38,11 +37,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +45,8 @@ import static android.content.Context.MODE_PRIVATE;
 public class ConcursosFragment extends Fragment implements Response.Listener<JSONObject>,Response.ErrorListener{
     RecyclerView recyclerConcursos;
     ArrayList<DatosConcursos> listaConcursos;
+    ConcursosAdapterRecyclerview adapter;
+    SearchView searchView;
     JsonObjectRequest jsonObjectRequest;
     private FirebaseAuth auth;
 
@@ -116,7 +113,7 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
             }
             //progres.hide();
 
-            ConcursosAdapterRecyclerview adapter = new ConcursosAdapterRecyclerview(listaConcursos,getActivity(),getContext());
+            adapter = new ConcursosAdapterRecyclerview(listaConcursos,getActivity(),getContext());
             recyclerConcursos.setAdapter(adapter);
 
         }catch (JSONException e){
@@ -128,8 +125,66 @@ public class ConcursosFragment extends Fragment implements Response.Listener<JSO
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu, menu);final MenuItem myActionMenuItem=menu.findItem(R.id.search);
+        searchView=(SearchView) myActionMenuItem.getActionView();
+        changeSearchViewTextColor(searchView);
+
+        ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text)).setHintTextColor(getResources().getColor(R.color.edittextColorWhite));
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                if (!searchView.isIconified()){
+                    searchView.setIconified(true);
+                }
+                myActionMenuItem.collapseActionView();
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                final ArrayList<DatosConcursos> filteredModeList=filter(listaConcursos,newText);
+                adapter.setfilter(filteredModeList);
+
+
+                return true;
+            }
+        });
+
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private ArrayList<DatosConcursos> filter (ArrayList<DatosConcursos> pl , String query)
+    {
+        query=query.toLowerCase();
+        final ArrayList<DatosConcursos> filteredModeList = new ArrayList<>();
+        for (DatosConcursos model:pl)
+        {
+            final String text=model.getTituloconcursos().toLowerCase();
+            if (text.startsWith(query))
+            {
+                filteredModeList.add(model);
+            }
+        }
+        return filteredModeList;
+    }
+
+    private void changeSearchViewTextColor(View view)
+    {
+        if (view != null)
+        {
+            if (view instanceof TextView)
+            {
+                ((TextView) view).setTextColor(Color.WHITE);
+                return;
+            }else if (view instanceof ViewGroup)
+            {
+                ViewGroup viewGroup = (ViewGroup)view;
+                for (int i=0;1<viewGroup.getChildCount();i++)
+                {
+                    changeSearchViewTextColor(viewGroup.getChildAt(i));
+                }
+            }
+        }
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.conecit.angelo.conecit2018">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.hardware.camera2.full"/>
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.hardware.camera2.full" />
+
 
     <meta-data
         android:name="com.google.firebase.messaging.default_notification_icon"
@@ -21,15 +22,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".Login.LoginActivity"></activity>
         <activity
-            android:name=".CrearCuenta"
-            android:parentActivityName=".LoginActivity">
+            android:name=".Login.CrearCuenta"
+            android:parentActivityName=".Login.LoginActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
+                android:value=".Login.LoginActivity" />
         </activity>
         <activity
             android:name=".Details.DetailsTaller1"
@@ -50,7 +49,7 @@
             android:label="@string/conecit" />
         <activity android:name=".Details.DetailsConcursos" />
         <activity
-            android:name=".Splash"
+            android:name=".Login.Splash"
             android:label="conecit 2018">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,7 +70,11 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Forgot_Password" />
+        <activity android:name=".Login.Forgot_Password" />
+        <activity android:name=".Camera"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.conecit.angelo.conecit2018.adapters;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -23,6 +24,7 @@ import com.conecit.angelo.conecit2018.R;
 import com.conecit.angelo.conecit2018.model.DatosConferencias;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<ConferenciasAdapterRecyclerview.Conferenciasviewholder> {
 
@@ -70,7 +72,9 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
                 i.putExtra("tituloConferencias",listaConferencias.get(position).getTituloconfe());
                 i.putExtra("shortConferencias",listaConferencias.get(position).getShortconfe());
                 i.putExtra("imagenConferencias",listaConferencias.get(position).getImagenconfe());
+                i.putExtra("fotoponente",listaConferencias.get(position).getFotoponente());
                 i.putExtra("descripcionConferencias",listaConferencias.get(position).getDescripcionconfe());
+
 
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                     Explode explode = new Explode();
@@ -87,9 +91,17 @@ public class ConferenciasAdapterRecyclerview extends RecyclerView.Adapter<Confer
 
     }
 
+
     @Override
     public int getItemCount() {
         return listaConferencias.size();
+    }
+
+    public void setfilter(ArrayList<DatosConferencias> listitem)
+    {
+        listaConferencias=new ArrayList<>();
+        listaConferencias.addAll(listitem);
+        notifyDataSetChanged();
     }
 
     public class Conferenciasviewholder extends RecyclerView.ViewHolder {

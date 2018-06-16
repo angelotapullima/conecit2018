@@ -94,6 +94,13 @@ public class TalleresAdapterRecyclerview extends RecyclerView.Adapter<TalleresAd
         return listaTalleres.size();
     }
 
+    public void setfilter(ArrayList<DatosTalleres> listitem)
+    {
+        listaTalleres=new ArrayList<>();
+        listaTalleres.addAll(listitem);
+        notifyDataSetChanged();
+    }
+
     public class Talleresviewholder extends RecyclerView.ViewHolder {
         private ImageView imagentalleresCard;
         private TextView tituloTalleresCard,ponenteTallerCard,duracionTalleresCard,precioTallerCard;

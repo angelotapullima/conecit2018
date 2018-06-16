@@ -1,17 +1,15 @@
-package com.conecit.angelo.conecit2018;
+package com.conecit.angelo.conecit2018.Login;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.conecit.angelo.conecit2018.MainActivity;
+import com.conecit.angelo.conecit2018.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Splash extends AppCompatActivity {

@@ -85,6 +85,13 @@ public class ConcursosAdapterRecyclerview extends RecyclerView.Adapter<Concursos
         return listaConcursos.size();
     }
 
+    public void setfilter(ArrayList<DatosConcursos> listitem)
+    {
+        listaConcursos=new ArrayList<>();
+        listaConcursos.addAll(listitem);
+        notifyDataSetChanged();
+    }
+
     public class Concursosviewholder extends RecyclerView.ViewHolder {
         private TextView tituloconcursos ;
         private ImageView imagenconcursos;

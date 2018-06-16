@@ -29,7 +29,7 @@ public class DetailsConferencias extends AppCompatActivity {
         String ponenteconfe = getIntent().getExtras().getString("ponenteConferencias");
         String descriptionconfe = getIntent().getExtras().getString("descripcionConferencias");
         String tituloconfe = getIntent().getExtras().getString("tituloConferencias");
-        String imagenconfe = getIntent().getExtras().getString("imagenConferencias");
+        String imagenconfe = getIntent().getExtras().getString("fotoponente");
         String shortbconfe = getIntent().getExtras().getString("shortConferencias");
 
 
@@ -38,7 +38,7 @@ public class DetailsConferencias extends AppCompatActivity {
         TextView descripcionConferencias = findViewById(R.id.descripcionConferenciaDc);
         TextView shotConferencias = findViewById(R.id.shortConferenciasDc);
 
-        ImageView imagenConferencias = findViewById(R.id.imagenConferenciasDt);
+        ImageView imagenConferencias = findViewById(R.id.fotoConferenciasDt);
 
         ponenteConferencias.setText(ponenteconfe);
         tituloConferencias.setText(tituloconfe);
@@ -49,11 +49,11 @@ public class DetailsConferencias extends AppCompatActivity {
         Glide.with(this).load(imagenconfe).apply(requestOptions).into(imagenConferencias);
     }
     public void showToolbar(String tittle, boolean upButton){
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarCt);
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(tittle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(upButton);
-        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbarCt);
+        //CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.collapsingToolbarCt);
 
     }
 }

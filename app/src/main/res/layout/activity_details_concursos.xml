@@ -49,6 +49,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:paddingRight="15dp"
+            android:paddingLeft="15dp"
             android:paddingTop="@dimen/activity_vertical_margin">
 
             <TextView
@@ -56,13 +58,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/tituloConcursosDt"
                 android:textSize="@dimen/textsize_usernameDetails"
-                android:text="@string/ponente_card"
-                android:paddingLeft="@dimen/activity_vertical_margin"
-                android:paddingRight="@dimen/activity_vertical_margin"/>
+                android:text="@string/ponente_card"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_divider"
+                android:paddingRight="@dimen/paddingtop_titleimageDetails"
+                android:paddingLeft="@dimen/paddingtop_titleimageDetails"
                 android:background="@android:color/darker_gray"/>
 
             <TextView
@@ -70,16 +72,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/descripcionConcursosDt"
-                android:paddingTop="@dimen/paddingtop_titleimageDetails"
-                android:paddingRight="@dimen/paddingtop_titleimageDetails"
-                android:paddingLeft="@dimen/paddingtop_titleimageDetails"
                 android:textSize="@dimen/disponibilidad_textsize"
                 android:text="@string/lorep_ipsun"
                 android:layout_gravity="center_horizontal"
                 />
 
         </LinearLayout>
-
 
     </android.support.v4.widget.NestedScrollView>
 
@@ -92,7 +90,5 @@
         app:layout_anchorGravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_mas" />
-
-
 
 </android.support.design.widget.CoordinatorLayout>

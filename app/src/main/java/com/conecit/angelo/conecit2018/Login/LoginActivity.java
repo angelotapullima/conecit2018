@@ -1,4 +1,4 @@
-package com.conecit.angelo.conecit2018;
+package com.conecit.angelo.conecit2018.Login;
 
 
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.conecit.angelo.conecit2018.MainActivity;
+import com.conecit.angelo.conecit2018.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

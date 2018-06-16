@@ -4,9 +4,16 @@
     <item
         android:title="search"
         app:showAsAction="always"
-        android:id="@+id/Searchview"
+        android:id="@+id/search"
         android:icon="@drawable/ic_search"
-        app:actionViewClass="android.widget.SearchView">
+        app:actionViewClass="android.support.v7.widget.SearchView">
+
+    </item>
+    <item
+        android:title="Foto"
+        app:showAsAction="always"
+        android:id="@+id/foto"
+        android:icon="@drawable/ic_camera">
 
     </item>
     <item android:id="@+id/logout"

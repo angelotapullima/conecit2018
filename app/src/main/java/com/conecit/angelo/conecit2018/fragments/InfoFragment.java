@@ -1,9 +1,7 @@
 package com.conecit.angelo.conecit2018.fragments;
 
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.conecit.angelo.conecit2018.LoginActivity;
+import com.conecit.angelo.conecit2018.Login.LoginActivity;
 import com.conecit.angelo.conecit2018.R;
 import com.google.firebase.auth.FirebaseAuth;
 
